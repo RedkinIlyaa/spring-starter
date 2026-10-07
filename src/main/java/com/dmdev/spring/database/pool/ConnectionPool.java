@@ -1,6 +1,23 @@
 package com.dmdev.spring.database.pool;
 
-public class ConnectionPool {
+import java.util.List;
+import java.util.Map;
 
+
+public class ConnectionPool {
+    public final String username;
+    private final Integer poolSize;
+    private final List<Object> args;
+    private final Map<String, Object> properties;
+
+    private ConnectionPool(String username,
+                           Integer poolSize,
+                           List<Object> args,
+                           Map<String, Object> properties) {
+        this.username = username;
+        this.poolSize = poolSize;
+        this.args = args;
+        this.properties = properties;
+    }
 }
 
