@@ -9,7 +9,7 @@
         <constructor-arg type="java.lang.String" value="PostresDriver"/>
     </bean>
 
-    <bean id = "pool1" class="com.dmdev.spring.database.pool.ConnectionPool">
+    <bean id = "pool1" class="com.dmdev.spring.database.pool.ConnectionPool" scope="prototype">
         <constructor-arg index="0" type="java.lang.String" ref="driver"/>
         <constructor-arg index="3" type="java.util.Map">
             <map>
