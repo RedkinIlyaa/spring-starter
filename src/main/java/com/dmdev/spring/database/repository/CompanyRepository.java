@@ -1,24 +1,32 @@
 package com.dmdev.spring.database.repository;
 
 import com.dmdev.spring.bpp.Auditing;
-import com.dmdev.spring.bpp.InjectBean;
 import com.dmdev.spring.bpp.Transaction;
 import com.dmdev.spring.database.entity.Company;
 import com.dmdev.spring.database.pool.ConnectionPool;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
+@Repository
 @Auditing
 @Transaction
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    private CompanyRepository() {
-        System.out.println("");
-    }
+    private final ConnectionPool pool1;
+    private final List<ConnectionPool> pools;
+    private final Integer poolsize;
 
-    @InjectBean
-    private ConnectionPool connectionPool;
+    public CompanyRepository(ConnectionPool pool1,
+                             @Value(value = "#{${db.pool.size}*2}") Integer poolsize,
+                             List<ConnectionPool> pools) {
+        this.pool1 = pool1;
+        this.poolsize = poolsize;
+        this.pools = pools;
+    }
 
     @PostConstruct
     private void init() {
