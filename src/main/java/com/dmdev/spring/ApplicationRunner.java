@@ -1,7 +1,7 @@
 package com.dmdev.spring;
 
 import com.dmdev.spring.database.pool.ConnectionPool;
-import com.dmdev.spring.database.repository.CompanyRepository;
+import com.dmdev.spring.database.repository.CrudRepository;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ApplicationRunner {
@@ -9,8 +9,8 @@ public class ApplicationRunner {
         try (ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application.xml")) {
             ConnectionPool connectionPool = classPathXmlApplicationContext.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
-            CompanyRepository companyRepository = classPathXmlApplicationContext.getBean("companyRepository", CompanyRepository.class);
-            System.out.println(companyRepository);
+            CrudRepository companyRepository = classPathXmlApplicationContext.getBean("companyRepository", CrudRepository.class);
+            System.out.println(companyRepository.findById(1));
         }
     }
 }

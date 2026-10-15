@@ -40,9 +40,14 @@
     </bean>
 
     <bean id="companyRepository" class="com.dmdev.spring.database.repository.CompanyRepository">
-        <constructor-arg index="0" type="com.dmdev.spring.database.pool.ConnectionPool" ref="pool1"/>
+<!--        <constructor-arg index="0" type="com.dmdev.spring.database.pool.ConnectionPool" ref="pool1"/>-->
     </bean>
 
     <bean id="logBeanFactoryPostProcessor" class="com.dmdev.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean id="verifyPropertyBeanFactoryPostProcessor" class="com.dmdev.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+
+
+    <bean class="com.dmdev.spring.bpp.InjectBeanPostProcessor"/>
+    <bean class="com.dmdev.spring.bpp.TransactionBeanPostProcessor"/>
+    <bean class="com.dmdev.spring.bpp.AuditingBeanPostProcessor"/>
 </beans>

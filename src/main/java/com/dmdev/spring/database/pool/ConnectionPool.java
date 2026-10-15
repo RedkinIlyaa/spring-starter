@@ -30,12 +30,12 @@ public class ConnectionPool implements InitializingBean {
 
     @PostConstruct
     private void init() {
-        System.out.println("Init connection pool");
+        System.out.println("Init connection pool in @PostConstruct");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Properties set");
+        System.out.println("Init callback in method afterPropertiesSet()");
     }
 
     @PreDestroy

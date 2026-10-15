@@ -9,7 +9,7 @@ import org.springframework.core.PriorityOrdered;
 public class LogBeanFactoryPostProcessor implements BeanFactoryPostProcessor, PriorityOrdered {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println();
+        System.out.println("Post bean factory post process LogBeanFactoryPostProcessor");
     }
 
     @Override
