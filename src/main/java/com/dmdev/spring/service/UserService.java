@@ -10,7 +10,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final CrudRepository<Integer, Company> crudRepository;
 
-
     public UserService(UserRepository userRepository, CrudRepository<Integer, Company> crudRepository) {
         this.userRepository = userRepository;
         this.crudRepository = crudRepository;

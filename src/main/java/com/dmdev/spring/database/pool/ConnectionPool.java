@@ -13,7 +13,7 @@ public class ConnectionPool {
     private final Integer poolSize;
 
     @Autowired
-    private ConnectionPool(@Value("${db.username}") String username,
+    public ConnectionPool(@Value("${db.username}") String username,
                            @Value("${db.pool.size}") Integer poolSize) {
         this.username = username;
         this.poolSize = poolSize;
