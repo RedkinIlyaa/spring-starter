@@ -1,4 +1,4 @@
-package com.dmdev.spring.condition;
+package com.dmdev.spring.config.condition;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

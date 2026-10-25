@@ -9,7 +9,6 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 
 @Configuration(proxyBeanMethods = true)
-@PropertySource(value = "classpath:application.properties")
 @ComponentScan(basePackages = "com.dmdev.spring", useDefaultFilters = true)
 @Import(WebConfiguration.class)
 public class ApplicationConfiguration {
